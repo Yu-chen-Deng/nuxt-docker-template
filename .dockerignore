@@ -1,0 +1,19 @@
+# Ignore all node_modules directories
+node_modules
+
+# Ignore pnpm debug logs and cache
+pnpm-debug.log
+
+# Ignore Nuxt auto-generated files
+.nuxt
+.output
+dist
+
+# Ignore IDE and system files
+.DS_Store
+.idea
+.vscode
+
+# Ignore Git
+.git
+.gitignore

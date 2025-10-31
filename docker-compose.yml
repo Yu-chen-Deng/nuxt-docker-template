@@ -1,0 +1,17 @@
+services:
+  nuxt:
+    build:
+      context: .
+      args:
+        DEV_MODE: ${DEV_MODE}   # .env
+    container_name: nuxt-app
+    ports:
+      - "${PORT}:3000"
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - DEV_MODE=${DEV_MODE}
+    command: sh -c "if [ \"$DEV_MODE\" = \"true\" ]; then pnpm install --prefer-offline && pnpm run dev; else node .output/server/index.mjs; fi"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.output
